@@ -1,4 +1,4 @@
-package ru.kata.spring.boot_security.demo.models;
+package ru.kata.spring.bootstrap.models;
 
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
@@ -21,6 +21,7 @@ public class Role implements GrantedAuthority {
     public Role(String role) {
         this.role = role;
     }
+
     public void setRole(String role) {
 
         this.role = role;

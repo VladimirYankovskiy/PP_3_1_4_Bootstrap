@@ -1,7 +1,7 @@
-package ru.kata.spring.boot_security.demo.DAO;
+package ru.kata.spring.bootstrap.DAO;
 
 import org.springframework.stereotype.Repository;
-import ru.kata.spring.boot_security.demo.models.Role;
+import ru.kata.spring.bootstrap.models.Role;
 
 import java.util.List;
 

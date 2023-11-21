@@ -1,15 +1,15 @@
-package ru.kata.spring.boot_security.demo;
+package ru.kata.spring.bootstrap;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import ru.kata.spring.boot_security.demo.Service.RoleService;
-import ru.kata.spring.boot_security.demo.Service.UserService;
-import ru.kata.spring.boot_security.demo.models.Role;
-import ru.kata.spring.boot_security.demo.models.User;
+import ru.kata.spring.bootstrap.Service.RoleService;
+import ru.kata.spring.bootstrap.Service.UserService;
+import ru.kata.spring.bootstrap.models.Role;
+import ru.kata.spring.bootstrap.models.User;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @SpringBootApplication
 public class SpringBootSecurityDemoApplication {
@@ -28,11 +28,11 @@ public class SpringBootSecurityDemoApplication {
 			Role roleAdmin = new Role("ROLE_ADMIN");
 			Role roleUser = new Role("ROLE_USER");
 
-			List<Role> rolesAdmin = new ArrayList<>();
+			Set<Role> rolesAdmin = new HashSet<>();
 			rolesAdmin.add(roleAdmin);
 			rolesAdmin.add(roleUser);
 
-			List<Role> rolesUsers = new ArrayList<>();
+			Set<Role> rolesUsers = new HashSet<>();
 			rolesUsers.add(roleUser);
 
 			user1.setRoles(rolesAdmin);
@@ -49,5 +49,4 @@ public class SpringBootSecurityDemoApplication {
 		} catch (Exception ignored) {
 		}
 	}
-
 }
