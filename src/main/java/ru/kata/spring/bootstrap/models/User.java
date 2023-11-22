@@ -22,6 +22,10 @@ public class User implements UserDetails {
     private String surname;
     @Column
     private String password;
+    @Column
+    private Integer age;
+    @Column
+    private String email;
 
     public void setId(long id) {
         this.id = id;
@@ -35,6 +39,14 @@ public class User implements UserDetails {
         this.surname = surname;
     }
 
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Getter
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "users_roles",
@@ -45,10 +57,13 @@ public class User implements UserDetails {
     public User() {
     }
 
-    public User(String name, String surname, String password) {
+    public User(String name, String surname, String password, Integer age, String email) {
         this.name = name;
         this.surname = surname;
         this.password = password;
+        this.age = age;
+        this.email = email;
+
     }
 
     public void setRoles(Set<Role> roles) {
@@ -72,7 +87,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return this.name;
+        return this.email;
     }
 
     @Override

@@ -9,7 +9,7 @@ import ru.kata.spring.bootstrap.Service.UserService;
 import java.security.Principal;
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/")
 public class UsersController {
     private final UserService userService;
 
@@ -17,9 +17,13 @@ public class UsersController {
         this.userService = userService;
     }
 
-    @GetMapping
-    public String pageUser(Model model, Principal principal) {
-        model.addAttribute("user", userService.findByUsername(principal.getName()));
-        return "user";
+    @GetMapping(value = "login")
+    public String viewLoginPage() {
+        return "login";
+    }
+
+    @GetMapping("user")
+    public void pageUser(Model model, Principal principal) {
+        model.addAttribute("user", userService.findByUserEmail(principal.getName()));
     }
 }
